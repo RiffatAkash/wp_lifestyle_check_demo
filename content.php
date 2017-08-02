@@ -16,9 +16,7 @@
 
                 <?php if ('post' == get_post_type()) : ?>
                     <p class="the_tags"> <?php
-                        the_tags('', '  ');
-                         
-                        ?></p>
+                        the_tags('', '  ');?></p>
                     <div class="entry-meta">
                             <?php sparkling_posted_on(); ?>
                         <span class="div_space"><i class="fa fa-user" aria-hidden="true"></i>
@@ -57,7 +55,7 @@
                 <div class="entry-content">
 
                     <?php
-                    if (get_theme_mod('sparkling_excerpts') != 1) :
+                    if (get_theme_mod('sparkling_excerpts') == 1) :
                         the_excerpt();
                         ?>
                         <br>

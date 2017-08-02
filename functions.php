@@ -478,7 +478,7 @@ function setPostViews($postID) {
 add_filter('manage_posts_columns', 'posts_column_views');
 add_action('manage_posts_custom_column', 'posts_custom_column_views',5,2);
 function posts_column_views($defaults){
-    $defaults['post_views'] = __('Views');
+    $defaults['post_views'] = 'Views';
     return $defaults;
 }
 function posts_custom_column_views($column_name, $id){
@@ -488,3 +488,8 @@ function posts_custom_column_views($column_name, $id){
 }
 remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 
+function wpdocs_theme_add_editor_styles() {
+    $font_url = str_replace( ',', '%2C', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
+    add_editor_style( $font_url );
+}
+add_action( 'after_setup_theme', 'wpdocs_theme_add_editor_styles' );
